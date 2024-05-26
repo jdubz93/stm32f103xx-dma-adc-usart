@@ -16,8 +16,7 @@
 
 uint16_t adc_buffer[ADC_BUFFER_SIZE];
 
-void delay_ms(volatile unsigned int time)
-{
+void delay_ms(volatile unsigned int time) {
     SysTick->LOAD = (8000 * time) - 1;                                      /* 1ms per count */
     SysTick->VAL = 0;                                                       /* clear current value register */          
     SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;   /* enable systick */
