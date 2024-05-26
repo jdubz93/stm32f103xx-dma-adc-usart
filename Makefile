@@ -16,7 +16,7 @@ CFLAGS     = -fdata-sections -ffunction-sections -g3 -Wall -mcpu=cortex-m3 -mlit
 ASFLAGS    =  $(CFLAGS)
 LDFLAGS    = -T $(LDSCRIPT) -Wl,--gc-sections --specs=nano.specs --specs=nosys.specs
 
-.PHONY: all clean flash burn hex bin
+.PHONY: all clean flash bin
 
 all: $(PRJ_NAME).elf
 
