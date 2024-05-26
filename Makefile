@@ -30,20 +30,13 @@ $(PRJ_NAME).elf: $(OBJ)
 %.o: %.s $(DEPS)
 	$(CC) -MMD -c $(ASFLAGS) $< -o $@
 
--include $(SRCDIR)/*.d
-
-clean:
-	rm -f $(OBJ) $(PRJ_NAME).elf $(PRJ_NAME).hex $(PRJ_NAME).bin $(SRCDIR)/*.d
-
 flash: $(PRJ_NAME).elf
-	openocd -f openocd.cfg -c "program $(PRJ_NAME).elf verify reset exit"
-
-burn: $(PRJ_NAME).elf
 	$(PROGRAMMER) $(PGFLAGS)
-
-hex: $(PRJ_NAME).elf
-	$(OBJCOPY) -O ihex $(PRJ_NAME).elf $(PRJ_NAME).hex
 
 bin: $(PRJ_NAME).elf
 	$(OBJCOPY) -O binary $(PRJ_NAME).elf $(PRJ_NAME).bin
 
+-include $(SRCDIR)/*.d
+
+clean:
+	rm -f $(OBJ) $(PRJ_NAME).elf $(PRJ_NAME).hex $(PRJ_NAME).bin $(SRCDIR)/*.d
