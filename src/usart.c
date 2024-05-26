@@ -29,7 +29,4 @@ void usart1_sendchar(char c) {
 
 void usart1_sendstring(const char* str) {
     while (*str) usart1_sendchar(*str++);
-    // {
-    //     usart1_sendchar(*str++);
-    // }
 }
