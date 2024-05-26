@@ -12,3 +12,4 @@ make
 make flash
 ```
 ![alt text](screenshot.png "Screenshot 1")
+![alt text](screenshot2.png "Screenshot 2")
